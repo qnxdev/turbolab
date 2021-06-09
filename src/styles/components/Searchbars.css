@@ -1,0 +1,156 @@
+.searchbar-input {
+  padding: 8px 15px;
+  border: var(--border);
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.searchbar-input input {
+  border: none;
+  outline: none;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.329);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.advanced {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 50%;
+  padding: 15px;
+}
+
+.advanced-header {
+  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 15px 0;
+}
+.advanced-header h4 {
+  margin: 0;
+  font-weight: 500;
+}
+.advanced-header img {
+  margin-right: 10px;
+}
+.advanced-header img:hover {
+  transform: scale(1.1);
+}
+.advanced-container {
+  padding: 25px 5px;
+}
+.advanced-adder {
+  margin-bottom: 15px;
+  justify-content: flex-start;
+}
+.advanced-adder button {
+  width: 25%;
+}
+.advanced-selector {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.type-selector {
+  width: 30%;
+}
+.type-selector button {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.types,.available{
+  position: absolute;
+  text-align: left;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.types{
+  width: 15%;
+}
+.types p, .available p{
+  width: 100% !important;
+  padding: 10px 15px;
+  margin: 0;
+}
+.types p:hover, .available p:hover{
+  background: #ddd;
+}
+.advanced-selector p {
+  width: 10%;
+}
+.options-wrapper {
+  width: 60%;
+}
+.option-selector {
+  width: 100%;
+}
+.options {
+  width: 100%;
+  flex-wrap: wrap;
+  border: var(--border);
+  border-radius: 5px;
+  border-color: var(--theme1);
+  padding: 8px 15px;
+}
+.options p {
+  width: max-content;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: #ddd;
+  border-radius: 5px;
+}
+.options p {
+  margin: 5px;
+}
+.options p img {
+  margin: 0 5px;
+}
+.options input {
+  background: transparent;
+  font-size: 1rem;
+  border: 0;
+  outline: none;
+  width: 10%;flex-grow: 1
+}
+.available{
+  width: 30%;
+}
+.advanced-footer {
+  border-top: 1px solid #eee;
+  justify-content: flex-end;
+  padding-top: 15px;
+}
+
+.advanced-footer button {
+  margin-right: 15px;
+  width: 20%;
+}
+.advanced-footer button:nth-child(1) {
+  border-color: #ddd;
+  font-weight: bold;
+  color: #777;
+}
+.advanced-footer button:nth-child(2) {
+  background-color: var(--theme1);
+  color: #fff;
+}
+
+
+/* DateSearchBar */
+
+.datesearch{
+  margin-right: 0 !important;
+}

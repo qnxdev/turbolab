@@ -1,24 +1,40 @@
 import { ArticleProps, ArticleListProps } from "../lib/types";
 import { DateSearchBar } from "./SearchBars";
+import "../styles/components/Article.css";
+import { FormatDate } from "./Helpers";
 
 export const ArticleList = (props: ArticleListProps) => {
   return (
     <div className="article-list-container">
-      <DateSearchBar searchTerm=""/>
+      <DateSearchBar dateRange="" />
       <div className="article-list">
-      {props.articles.map((article) => (
-        <div className="article-list-item">
-          <div className="date">
-            <p>{article.date}</p>
+        {props.articles.map((article, index) => (
+          <div
+            onClick={() => props.setSelected(index)}
+            className={`article-list-item clickable${
+              props.selected === index ? " selected" : ""
+            }`}
+          >
+            <div className="date">
+              <p>{FormatDate(article.date)}</p>
+            </div>
+            <h4>{article.title}</h4>
+            <div className="publisher">
+              <span
+                style={{
+                  backgroundColor:
+                    article.sentiment === "Postive"
+                      ? "green"
+                      : article.sentiment === "Neutral"
+                      ? "grey"
+                      : "red",
+                }}
+              ></span>
+              <p>{article.publication}</p>
+            </div>
           </div>
-          <h4>{article.title}</h4>
-          <div className="publisher">
-            <i></i>
-            <p>{article.publication}</p>
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -29,17 +45,17 @@ export const Article = (props: ArticleProps) => {
       <div className="article-head">
         <h1>{props.title}</h1>
       </div>
-      <div className="detail">
-        <div className="publisher">
-          <img src="" alt="" />
+      <div className="detail df">
+        <div className="publisher df">
+          <img src="/icons/pub.png" alt="" width="25px" height="25px" />
           <p>{props.publication}</p>
         </div>
         <div className="date">
-          <p>{props.date}</p>
+          <p>{FormatDate(props.date)}</p>
         </div>
       </div>
       <div className="content">
-        <p>{props.content}</p>
+        <article>{props.content}</article>
       </div>
     </div>
   );

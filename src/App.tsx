@@ -2,6 +2,7 @@ import "./styles/App.css";
 import { ArticleList, Article } from "./components/Article";
 import { Layout } from "./components/Layout";
 import { ArticleProps } from "./lib/types";
+import { useEffect, useState } from "react";
 
 let Sample: ArticleProps = {
   date: "2020-12-02T00:00:00Z",
@@ -17,12 +18,29 @@ let Sample: ArticleProps = {
 };
 
 function App() {
+  const [userPref, setUserPref] = useState({});
+  const [datePref, setDatePref] = useState({});
+  const [selected, setSelected] = useState(0);
+
+  useEffect(() => {
+    if (localStorage) {
+      if (userPref === "") {
+        try {
+          const user = localStorage.getItem("user-pref");
+          const recent = localStorage.getItem("datePref");
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
+  });
+
   return (
     <div className="App">
-      <Layout>
-        <div className="main-container">
-          <ArticleList articles={[Sample,Sample]} />
-          <Article {...Sample} />
+      <Layout filter={userPref} setFilter={setUserPref}>
+        <div className="main-container df">
+          <ArticleList selected={selected} setSelected={setSelected} articles={[Sample, Sample]} />
+          <Article {...[Sample, Sample][selected]} />
         </div>
       </Layout>
     </div>
