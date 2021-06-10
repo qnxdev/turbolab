@@ -6,10 +6,11 @@ import { FormatDate } from "./Helpers";
 export const ArticleList = (props: ArticleListProps) => {
   return (
     <div className="article-list-container">
-      <DateSearchBar dateRange="" />
+      <DateSearchBar dateRange={props.dateRange} setDateRange={props.setDateRange}/>
       <div className="article-list">
         {props.articles.map((article, index) => (
           <div
+          key={index}
             onClick={() => props.setSelected(index)}
             className={`article-list-item clickable${
               props.selected === index ? " selected" : ""
@@ -19,21 +20,24 @@ export const ArticleList = (props: ArticleListProps) => {
               <p>{FormatDate(article.date)}</p>
             </div>
             <h4>{article.title}</h4>
-            <div className="publisher">
+            <div className="publisher df">
               <span
                 style={{
                   backgroundColor:
-                    article.sentiment === "Postive"
-                      ? "green"
+                    article.sentiment === "Positive"
+                      ? "#00ff00"
                       : article.sentiment === "Neutral"
-                      ? "grey"
-                      : "red",
+                      ? "#888"
+                      : "#f00"
                 }}
               ></span>
               <p>{article.publication}</p>
             </div>
           </div>
         ))}
+        <div className="pagination df">
+          <button onClick={props.nextPage}>Next Page</button>
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.loading-wrapper, .none-wrapper{
+  align-items: center;
+  justify-content:  center;
+  height: 60vh;
+}
+.loading-wrapper{
+  width: 35%;
+  border-right: var(--border);
+}
+
+ .none-wrapper{
+  width: 100%;
+}

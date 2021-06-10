@@ -11,6 +11,7 @@
 }
 
 .overlay {
+  overflow-y: scroll;
   position: absolute;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.329);
@@ -127,6 +128,14 @@
 }
 .available{
   width: 30%;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.available .loading-wrapper{
+  height: 150px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .advanced-footer {
   border-top: 1px solid #eee;
@@ -153,4 +162,27 @@
 
 .datesearch{
   margin-right: 0 !important;
+}
+.dateinput-container{
+  width: 100%;
+}
+.dateinput-wrapper{
+  justify-content: space-between;
+  width: 100%;
+}
+.date-selector{
+  position: absolute;
+  min-width: 20%;
+  flex-direction: column;
+  background-color: #fff;
+  margin-left: -10px;
+  padding: 20px;
+  border-radius: 8px;
+  border: var(--border)
+}
+.date-selector input{
+  border-radius: 8px;
+  border: var(--border);
+  margin: 5px;
+  padding: 5px;
 }
